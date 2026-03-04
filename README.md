@@ -166,7 +166,7 @@ sudo pacman -S polkit-gnome
 ### Applications
 | Key | Action |
 |-----|--------|
-| `Super + T` | Open terminal (Ghostty) |
+| `Super + T` | Open terminal (Kitty) |
 | `Super + B` | Open browser (Brave) |
 | `Super + A` | Application launcher (Rofi) |
 | `Super + F` | File manager |
@@ -292,7 +292,7 @@ chmod +x ~/.config/hypr/scripts/*.sh
 
 - [Hyprland Wiki](https://wiki.hyprland.org/)
 - [Hyprland GitHub](https://github.com/hyprwm/Hyprland)
-- [Ghostty Terminal](https://github.com/ghostty-org/ghostty)
+- [Kitty Terminal](https://github.com/kovidgoyal/kitty)
 - [Waybar](https://github.com/Alexays/Waybar)
 - [Rofi](https://github.com/davatorium/rofi)
 - [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)
