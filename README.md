@@ -1,6 +1,6 @@
 # Hyprland Dotfiles - Gray Theme
 
-> Inspired by my sad live
+> Inspired by my sad life
 
 A simple, hyprland configuration if you have a simple life like me.
 
@@ -308,7 +308,7 @@ This configuration is free to use and modify. No warranty provided.
 
 ## 💖 Credits
 
-- Inspired by my sad live
+- Inspired by my sad life
 - Color scheme: Pure grayscale theme
 - Based on the Arch Linux and Hyprland communities
 
