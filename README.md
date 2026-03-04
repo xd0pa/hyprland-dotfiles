@@ -24,8 +24,8 @@ A simple, hyprland configuration if you have a simple life like me.
 ```
 .
 ├── .config
-│   ├── ghostty
-│   │   └── config
+│   ├── kitty
+│   │   └── kitty.conf
 │   ├── hypr
 │   │   ├── config
 │   │   │   ├── env.conf
