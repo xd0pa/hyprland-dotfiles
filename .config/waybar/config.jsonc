@@ -1,109 +1,84 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 35,
-    "spacing": 4,
-
-    // Bar modules
-    "modules-left": ["hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "pulseaudio", "network", "battery", "tray"],
-
-    // Left Modules
-
-    // "hyprland/workspaces": {
-    //     "format": "{icon}",
-    //     "on-click": "activate",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "active": "",
-    //         "default": ""
-    //     },
-    //     "persistent-workspaces": {
-    //         "*": 5
-    //     }
-    // },
-
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 60,
-        "separate-outputs": true,
-        "rewrite": {
-            "(.*) — Brave": " $1",
-            "(.*) - nvim": " $1",
-            "": "Desktop"
-        }
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 30, // Waybar height (to be removed for auto height)
+  "width": 1750, // Waybar width
+  "spacing": 4, // Gaps between modules (4px)
+  "modules-left": [
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "network",
+    "pulseaudio",
+    "pulseaudiomic",
+    "battery",
+    "custom/power"
+  ],
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "separate-outputs": false,
+    "icon": false
+  },
+  "clock": {
+    "format": "{:%A, %d de %B de %Y - %H:%M}",
+    "tooltip-format": "{calendar}",
+    "timezone": "Europe/Madrid",
+    "interval": 60
+  },
+  "cpu": {
+    "format": "{usage}%  ",
+    "interval": 10
+  },
+  "memory": {
+    "format": "{used:0.1f}G  ",
+    "interval": 30
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
     },
-
-    // Center Modules
-
-    "clock": {
-        "format": "{:%H:%M  %d/%m/%Y}",
-        "format-alt": "{:%A, %d de %B de %Y}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode": "month",
-            "format": {
-                "today": "<span color='#a6adc8'><b><u>{}</u></b></span>"
-            },
-        "actions": {
-            "on-click-right": "mode",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        }
-      }
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{icon} {time}",
+    "format-icons": [
+      "󰁺",
+      "󰁼",
+      "󰁾",
+      "󰂀",
+      "󰁹"
+    ]
+  },
+  "network": {
+    "format-wifi": "Connect 󰤨  ",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{essid}"
+  },
+  "pulseaudio": {
+    "format": "  {volume}%",
+    "format-muted": " Mudo",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
     },
-
-    // Right Modules
-
-    "cpu": {
-        "format": "cpu {usage}%",
-        "interval": 2,
-        "tooltip": false
-    },
-
-    "memory": {
-        "format": "ram {used:0.1f}G",
-        "interval": 2,
-        "tooltip": false
-    },
-
-    "pulseaudio": {
-        "format": "vol {volume}%",
-        "format-muted": "vol muted",
-        "on-click": "pavucontrol",
-        "on-click-right": "~/.config/hypr/scripts/volume.sh mute",
-        "scroll-step": 5,
-        "tooltip": false
-    },
-
-    "network": {
-        "format-wifi": "net {signalStrength}%",
-        "format-ethernet": "net connected",
-        "format-disconnected": "net down",
-        "tooltip-format": "{ipaddr}",
-        "on-click": "nm-connection-editor",
-        "tooltip": false
-    },
-
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "bat {capacity}%",
-        "format-charging": "bat charging {capacity}%",
-        "format-plugged": "bat plugged {capacity}%",
-        "tooltip": false
-    },
-
-    "tray": {
-        "icon-size": 14,
-        "spacing": 8
-    }
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "scroll-step": 5
+  }
 }

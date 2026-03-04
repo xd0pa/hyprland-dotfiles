@@ -25,45 +25,22 @@ get_mute_status() {
     fi
 }
 
-create_bar() {
-    local percentage=$1
-    local bar_length=20
-    local filled=$((percentage * bar_length / 100))
-    local empty=$((bar_length - filled))
-
-    local bar=""
-    for ((i=0; i<filled; i++)); do
-        bar+="█"
-    done
-    for ((i=0; i<empty; i++)); do
-        bar+="░"
-    done
-
-    echo "$bar"
-}
-
 send_notification() {
     local volume=$(get_volume)
     local muted=$(get_mute_status)
-    local bar=$(create_bar $volume)
-
     if [ "$muted" = "true" ]; then
-        notify-send -u low -h string:x-canonical-private-synchronous:volume \
-                    -h int:value:0 \
-                    " Muted" "$bar  $volume%"
+        notify-send -u low -t 1000 -h int:transient:1 -h string:x-canonical-private-synchronous:volume \
+                    -h int:value:0 "Muted" ""
     else
         if [ $volume -eq 0 ]; then
-            notify-send -u low -h string:x-canonical-private-synchronous:volume \
-                        -h int:value:$volume \
-                        "󰖁 Volume" "$bar  $volume%"
+            notify-send -u low -t 1000 -h int:transient:1 -h string:x-canonical-private-synchronous:volume \
+                        -h int:value:$volume "󰖁 Volume" ""
         elif [ $volume -lt 50 ]; then
-            notify-send -u low -h string:x-canonical-private-synchronous:volume \
-                        -h int:value:$volume \
-                        " Volume" "$bar  $volume%"
+            notify-send -u low -t 1000 -h int:transient:1 -h string:x-canonical-private-synchronous:volume \
+                        -h int:value:$volume "Volume" ""
         else
-            notify-send -u low -h string:x-canonical-private-synchronous:volume \
-                        -h int:value:$volume \
-                        " Volume" "$bar  $volume%"
+            notify-send -u low -t 1000 -h int:transient:1 -h string:x-canonical-private-synchronous:volume \
+                        -h int:value:$volume "Volume" ""
         fi
     fi
 }
@@ -91,7 +68,6 @@ case $1 in
         else
             pactl set-sink-mute @DEFAULT_SINK@ toggle
         fi
-        sleep 0.1  # Pequeña pausa para asegurar que el cambio se aplique
         send_notification
         ;;
     *)

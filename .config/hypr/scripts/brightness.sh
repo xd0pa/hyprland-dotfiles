@@ -16,53 +16,49 @@ get_brightness_percentage() {
     echo $((current * 100 / max))
 }
 
-create_bar() {
-    local percentage=$1
-    local bar_length=20
-    local filled=$((percentage * bar_length / 100))
-    local empty=$((bar_length - filled))
+send_notification() {
+    local brightness=$(get_brightness_percentage)
 
-    local bar=""
-    for ((i=0; i<filled; i++)); do
-        bar+="█"
-    done
-    for ((i=0; i<empty; i++)); do
-        bar+="░"
-    done
-
-    echo "$bar"
+    if [ $brightness -eq 0 ]; then
+        notify-send -u low -h string:x-canonical-private-synchronous:brightness \
+                    -h int:value:$brightness -A "dismiss" "Brightness" ""
+    elif [ $brightness -lt 30 ]; then
+        notify-send -u low -h string:x-canonical-private-synchronous:brightness \
+                    -h int:value:$brightness -A "dismiss" "Brightness" ""
+    elif [ $brightness -lt 70 ]; then
+        notify-send -u low -h string:x-canonical-private-synchronous:brightness \
+                    -h int:value:$brightness -A "dismiss" " Brightness" ""
+    else
+        notify-send -u low -h string:x-canonical-private-synchronous:brightness \
+                    -h int:value:$brightness -A "dismiss" " Brightness" ""
+    fi
 }
 
 send_notification() {
     local brightness=$(get_brightness_percentage)
-    local bar=$(create_bar $brightness)
 
     if [ $brightness -eq 0 ]; then
-        notify-send -u low -h string:x-canonical-private-synchronous:brightness \
-                    -h int:value:$brightness \
-                    "󰃞 Brightness" "$bar  $brightness%"
+        notify-send -u low -t 1000 -h int:transient:1 -h string:x-canonical-private-synchronous:brightness \
+                    -h int:value:$brightness "Brightness" ""
     elif [ $brightness -lt 30 ]; then
-        notify-send -u low -h string:x-canonical-private-synchronous:brightness \
-                    -h int:value:$brightness \
-                    "󰃟 Brightness" "$bar  $brightness%"
+        notify-send -u low -t 1000 -h int:transient:1 -h string:x-canonical-private-synchronous:brightness \
+                    -h int:value:$brightness "Brightness" ""
     elif [ $brightness -lt 70 ]; then
-        notify-send -u low -h string:x-canonical-private-synchronous:brightness \
-                    -h int:value:$brightness \
-                    " Brightness" "$bar  $brightness%"
+        notify-send -u low -t 1000 -h int:transient:1 -h string:x-canonical-private-synchronous:brightness \
+                    -h int:value:$brightness "Brightness" ""
     else
-        notify-send -u low -h string:x-canonical-private-synchronous:brightness \
-                    -h int:value:$brightness \
-                    " Brightness" "$bar  $brightness%"
+        notify-send -u low -t 1000 -h int:transient:1 -h string:x-canonical-private-synchronous:brightness \
+                    -h int:value:$brightness "Brightness" ""
     fi
 }
 
 case $1 in
     up)
-        brightnessctl s 5%+
+        brightnessctl s 2%+
         send_notification
         ;;
     down)
-        brightnessctl s 5%-
+        brightnessctl s 2%-
         send_notification
         ;;
     *)

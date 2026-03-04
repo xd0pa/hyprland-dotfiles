@@ -2,290 +2,388 @@
   all: unset;
   font-family: "Iosevka Nerd Font 11";
   font-size: 13px;
-  font-weight: 500;
 }
 
-/* Control Center */
 .control-center {
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
-  border-radius: 10px;
-  padding: 12px;
-  margin: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  background: #111111;
+  border-radius: 16px;
+  padding: 8px;
 }
 
-/* Widget Title */
 .control-center .widget-title {
-  color: #e0e0e0;
-  font-size: 15px;
+  color: #e8e8e8;
+  font-size: 18px;
   font-weight: 600;
-  padding: 10px 8px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #2a2a2a;
+  padding: 16px 12px 12px;
+  margin-bottom: 4px;
 }
 
 .control-center .widget-title > button {
   background: transparent;
-  color: #9a9a9a;
-  padding: 5px 12px;
-  border: 1px solid #2a2a2a;
-  border-radius: 6px;
+  color: #707070;
+  padding: 6px 14px;
+  border-radius: 8px;
   font-size: 12px;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
 }
 
 .control-center .widget-title > button:hover {
-  background: #252525;
-  color: #d0d0d0;
-  border-color: #353535;
+  background: #1a1a1a;
+  color: #e0e0e0;
 }
 
-/* DND Widget */
 .control-center .widget-dnd {
-  background: #202020;
-  border: 1px solid #2a2a2a;
-  border-radius: 8px;
-  padding: 10px 12px;
-  margin: 10px 0;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 8px 0;
 }
 
 .control-center .widget-dnd > label {
-  color: #b0b0b0;
+  color: #a0a0a0;
   font-size: 13px;
 }
 
 .control-center .widget-dnd > switch {
-  background: #2a2a2a;
-  border: 1px solid #353535;
-  border-radius: 14px;
-  min-width: 44px;
-  min-height: 22px;
-  transition: all 0.2s ease;
+  background: #252525;
+  border-radius: 20px;
+  min-width: 48px;
+  min-height: 26px;
 }
 
 .control-center .widget-dnd > switch:checked {
-  background: #404040;
-  border-color: #505050;
+  background: #303030;
 }
 
 .control-center .widget-dnd > switch slider {
-  background: #707070;
+  background: #606060;
   border-radius: 50%;
-  transition: all 0.2s ease;
 }
 
 .control-center .widget-dnd > switch:checked slider {
-  background: #b0b0b0;
+  background: #111111;
 }
 
-/* MPRIS Widget (Media Player) */
 .control-center .widget-mpris {
-  background: #222222;
-  border: 1px solid #2a2a2a;
-  border-radius: 8px;
-  padding: 12px;
-  margin: 10px 0;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 8px 0;
 }
 
-.control-center .widget-mpris > box {
-  background: transparent;
-}
-
-.control-center .widget-mpris-player {
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-
-.control-center .widget-mpris-player:last-child {
-  border-bottom: none;
-}
-
-/* Thumbnail - small on the left */
 .control-center .widget-mpris img {
-  border-radius: 4px;
-  min-height: 48px;
-  min-width: 48px;
-  max-height: 48px;
-  max-width: 48px;
-  margin-right: 10px;
+  border-radius: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  /* max-height/max-width eliminados: no soportados en GTK */
+  margin-right: 14px;
 }
 
 .control-center .widget-mpris-title {
   color: #e0e0e0;
-  font-size: 13px;
-  font-weight: 600;
-  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .control-center .widget-mpris-artist {
-  color: #909090;
+  color: #707070;
   font-size: 12px;
-  margin: 2px 0 0 0;
+  margin-top: 2px;
 }
 
-.control-center .widget-mpris-album {
-  display: none;
-}
+/* .widget-mpris-album: display:none eliminado, no soportado en GTK */
 
-/* MPRIS Buttons - centered below */
 .control-center .widget-mpris-player button {
   background: transparent;
-  color: #909090;
-  border: none;
-  border-radius: 6px;
-  padding: 6px;
-  margin: 8px 4px 0 4px;
-  transition: all 0.15s ease;
-  min-width: 32px;
-  min-height: 32px;
+  color: #808080;
+  border-radius: 50%;
+  padding: 8px;
+  margin: 6px 2px 0;
+  min-width: 36px;
+  min-height: 36px;
+  transition: all 0.2s ease;
 }
 
 .control-center .widget-mpris-player button:hover {
-  background: #2a2a2a;
-  color: #c0c0c0;
+  background: #252525;
+  color: #e0e0e0;
 }
 
-.control-center .widget-mpris-player button:disabled {
-  color: #505050;
-  opacity: 0.3;
-}
-
-/* Hide progress bar */
 .control-center .widget-mpris scale {
   opacity: 0;
-  min-height: 0;
-  max-height: 0;
-  margin: 0;
 }
 
-/* Notification Groups */
-.notification-group {
-  margin: 16px 0;
+.control-center .widget-volume,
+.control-center .widget-backlight,
+.control-center .widget-brightness {
+  padding: 15px;
+  margin: 8px 0;
 }
 
-/* Notifications */
-.notification {
-  background: #222222;
-  border: 1px solid #2a2a2a;
-  border-left: 2px solid #707070;
-  border-radius: 8px;
-  padding: 14px;
-  margin: 12px 0;
-  transition: all 0.15s ease;
+.control-center .widget-volume scale,
+.control-center .widget-backlight scale,
+.control-center .widget-brightness scale {
+  min-height: 12px;
+  min-width: 200px;
 }
 
-.notification:hover {
-  background: #282828;
-  border-color: #353535;
-  border-left-color: #909090;
+.control-center .widget-volume scale trough,
+.control-center .widget-backlight scale trough,
+.control-center .widget-brightness scale trough {
+  background: #303030;
+  border-radius: 6px;
+  min-height: 12px;
 }
 
-.notification .summary {
-  color: #e0e0e0;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.notification .body {
-  color: #a0a0a0;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.5;
-  margin-top: 6px;
-}
-
-.notification .time {
-  color: #707070;
-  font-size: 11px;
-  margin-top: 8px;
-}
-
-.notification > *:first-child > img {
-  margin-right: 12px;
+.control-center .widget-volume scale highlight,
+.control-center .widget-backlight scale highlight,
+.control-center .widget-brightness scale highlight {
+  background: #606060;
   border-radius: 6px;
 }
 
-/* Notification Actions */
-.notification .actions {
+.control-center .widget-volume scale slider,
+.control-center .widget-backlight scale slider,
+.control-center .widget-brightness scale slider {
+  background: #e0e0e0;
+  border-radius: 50%;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.control-center .widget-volume image,
+.control-center .widget-backlight image,
+.control-center .widget-brightness image {
+  font-size: 24px;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.notification {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 6px 0;
+  transition: all 0.2s ease;
+}
+
+.notification:hover {
+  background: #202020;
+}
+
+.notification .summary {
+  color: #e8e8e8;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.notification .body {
+  color: #888888;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.notification .time {
+  color: #606060;
+  font-size: 11px;
   margin-top: 10px;
+}
+
+.notification > *:first-child > img {
+  margin-right: 14px;
+  border-radius: 8px;
+}
+
+.notification .actions {
+  margin-top: 12px;
 }
 
 .notification .actions button {
   background: transparent;
-  color: #909090;
-  padding: 6px 12px;
+  color: #808080;
+  padding: 8px 14px;
   margin: 4px 4px 0 0;
-  border: 1px solid #2a2a2a;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 12px;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
 }
 
 .notification .actions button:hover {
-  background: #2a2a2a;
-  color: #c0c0c0;
-  border-color: #353535;
+  background: #252525;
+  color: #e0e0e0;
 }
 
-/* Close Button */
 .close-button {
+  background: transparent;
+  color: #505050;
+  padding: 4px;
+  border-radius: 6px;
   opacity: 0;
-  pointer-events: none;
+  transition: all 0.2s ease;
 }
 
-/* Notification Window */
-.notification-window {
-  background: transparent;
+.notification:hover .close-button {
+  opacity: 1;
+}
+
+.close-button:hover {
+  background: #252525;
+  color: #a0a0a0;
 }
 
 .notification-window .notification {
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
-  border-left: 2px solid #707070;
-  border-radius: 8px;
-  padding: 12px;
-  margin: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  background: #111111;
+  border-radius: 14px;
+  padding: 18px;
+  margin: 8px;
 }
 
-/* Critical Notifications */
 .notification.critical {
-  border-left: 2px solid #b0b0b0;
+  border-left: 3px solid #b0b0b0;
 }
 
-.notification.critical .summary {
-  color: #e8e8e8;
-}
-
-/* Widget Notifications Container */
 .control-center .widget-notifications {
-  min-height: 100px;
   padding: 4px 0;
 }
 
-/* Blank Window */
-.blank-window {
+.scrollbar {
   background: transparent;
+  min-width: 8px;
 }
 
-/* Scrollbar */
-scrollbar {
-  background: transparent;
-  min-width: 6px;
+.scrollbar slider {
+  background: #303030;
+  border-radius: 4px;
+  min-width: 8px;
 }
 
-scrollbar slider {
+.scrollbar slider:hover {
   background: #404040;
-  border-radius: 3px;
-  min-width: 6px;
-  min-height: 20px;
-  transition: all 0.15s ease;
 }
 
-scrollbar slider:hover {
-  background: #505050;
+.floating-notifications {
+  background: transparent;
+  min-width: 380px;
+  margin-top: 5px;
+}
+
+.floating-notifications .notification-row {
+  background: transparent;
+}
+
+.floating-notifications .notification-background {
+  background: #111111;
+  border: 1px solid #303030;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: 4px;
+}
+
+.floating-notifications .notification {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.floating-notifications .notification .summary {
+  color: #d0d0d0;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.floating-notifications .notification .summary image {
+  margin-right: 12px;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.floating-notifications .notification .body {
+  color: #808080;
+  font-size: 14px;
+}
+
+.floating-notifications .notification .body progressbar {
+  margin-top: 6px;
+  min-height: 20px;
+  min-width: 160px;
+}
+
+.floating-notifications .notification .body progressbar trough {
+  background: #303030;
+  border-radius: 6px;
+  min-height: 20px;
+}
+
+.floating-notifications .notification .body progressbar progress {
+  background: #606060;
+  border-radius: 6px;
+  min-height: 20px;
+}
+
+.floating-notifications .notification .body progressbar progress,
+.floating-notifications .notification .body progressbar trough {
+  border-radius: 6px;
+  min-height: 20px;
+}
+
+.floating-notifications .notification .progress-bar {
+  margin-top: 10px;
+  min-height: 16px;
+}
+
+.floating-notifications .notification .progress-bar trough {
+  background: #303030;
+  border-radius: 8px;
+  min-height: 16px;
+}
+
+.floating-notifications .notification .progress-bar progress {
+  background: #707070;
+  border-radius: 8px;
+  min-height: 16px;
+}
+
+.floating-notifications .notification progressbar {
+  margin-top: 10px;
+  min-height: 18px;
+}
+
+.floating-notifications .notification progressbar trough {
+  background: #303030;
+  border-radius: 8px;
+  min-height: 18px;
+}
+
+.floating-notifications .notification progressbar progress {
+  background: #707070;
+  border-radius: 8px;
+  min-height: 18px;
+}
+
+/* Volumen y Brillo - notificaciones flotantes más grandes */
+/* Selectores :is() eliminados: no soportados en GTK CSS */
+.floating-notifications .notification .summary {
+  font-size: 18px;
+}
+
+.floating-notifications .notification .body {
+  font-size: 14px;
+}
+
+.floating-notifications .notification progressbar {
+  min-height: 24px;
+}
+
+.floating-notifications .notification progressbar trough {
+  background: #353535;
+  border-radius: 10px;
+  min-height: 24px;
+}
+
+.floating-notifications .notification progressbar progress {
+  background: #707070;
+  border-radius: 10px;
+  min-height: 24px;
 }
