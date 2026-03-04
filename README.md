@@ -12,7 +12,7 @@ A simple, hyprland configuration if you have a simple life like me.
 
 - 🎨 **Pure Sad Theme** - Monochromatic aesthetic (maybe not all monochromatic)
 - ⚡ **Hyprland** - Dynamic tiling Wayland compositor
-- 👻 **Ghostty** - Modern GPU-accelerated Terminal
+- 👻 **Kitty** - Good Terminal
 - 📋 **SwayNC** - Notification Center with Media Controls
 - 🚀 **Rofi** - Application Launcher with Fuzzy Search
 - 📊 **Waybar** - Customizable Status Bar
