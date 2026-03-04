@@ -1,12 +1,8 @@
-# Arch Linux Hyprland Dotfiles - Minimal Gray Theme
+# Hyprland Dotfiles - Gray Theme
 
-> Inspired by the Pixies from The Fairly OddParents - everything is turned off and minimal! 🖤
+> Inspired by my sad live
 
-A minimalist grayscale Hyprland configuration for Arch Linux featuring a clean, monochromatic aesthetic.
-
-## 🎨 Theme Philosophy
-
-This setup embraces **extreme minimalism** with a pure grayscale color palette. No flashy colors, no distractions - just clean grays from `#1a1a1a` to `#f0f0f0`. Perfect for those who appreciate simplicity and focus.
+A simple, hyprland configuration if you have a simple life like me.
 
 ## 📸 Screenshots
 
@@ -14,16 +10,14 @@ This setup embraces **extreme minimalism** with a pure grayscale color palette. 
 
 ## ✨ Features
 
-- 🎨 **Pure Grayscale Theme** - Monochromatic aesthetic across all components
+- 🎨 **Pure Sad Theme** - Monochromatic aesthetic (maybe not all monochromatic)
 - ⚡ **Hyprland** - Dynamic tiling Wayland compositor
-- 👻 **Ghostty** - Modern GPU-accelerated terminal (configurable)
-- 🦊 **Brave Browser** - Privacy-focused browser (configurable)
-- 📋 **SwayNC** - Notification center with media controls
-- 🚀 **Rofi** - Application launcher with fuzzy search
-- 📊 **Waybar** - Customizable status bar
-- 🔒 **Hyprlock** - Screen lock with blur effects
-- 🔋 **Hypridle** - Idle management daemon
-- 📋 **Cliphist** - Clipboard manager with rofi integration
+- 👻 **Ghostty** - Modern GPU-accelerated Terminal
+- 📋 **SwayNC** - Notification Center with Media Controls
+- 🚀 **Rofi** - Application Launcher with Fuzzy Search
+- 📊 **Waybar** - Customizable Status Bar
+- 🔒 **Hyprlock** - Screen Lock with Blur Effects
+- 🔋 **Hypridle** - Idle Management Daemon
 
 ## 📁 Repository Structure
 
@@ -64,7 +58,7 @@ This setup embraces **extreme minimalism** with a pure grayscale color palette. 
 
 ### Prerequisites
 
-This configuration is designed for **Ghostty** as the terminal and **Brave** as the browser, but you can easily change these in the Hyprland configuration files located in `~/.config/hypr/`.
+This configuration is designed for **Kitty** as the terminal and **Brave** as the browser, but you can easily change these in the Hyprland configuration files located in `~/.config/hypr/`.
 
 To modify:
 - Terminal: Edit `~/.config/hypr/config/env.conf` or `~/.config/hypr/config/keybinds.conf`
@@ -146,8 +140,8 @@ sudo pacman -S polkit-gnome
 
 2. **Clone this repository**
    ```bash
-   git clone https://github.com/yourusername/dotfiles.git
-   cd dotfiles
+   git clone https://github.com/xd0pa/hyprland-dotfiles.git
+   cd hyprland-dotfiles
    ```
 
 3. **Copy configuration files**
@@ -164,18 +158,6 @@ sudo pacman -S polkit-gnome
    ```bash
    hyprctl reload
    ```
-
-## 🎨 Color Palette
-
-The entire setup uses a grayscale palette:
-
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Black | `#1a1a1a` | Backgrounds |
-| Dark Gray | `#2a2a2a` | Borders, selections |
-| Medium Gray | `#707070` | Active borders, accents |
-| Light Gray | `#a0a0a0` | Secondary text |
-| White | `#e0e0e0` | Primary text |
 
 ## ⌨️ Key Bindings
 
@@ -267,7 +249,7 @@ All colors are defined in:
 - Waybar: `~/.config/waybar/style.css`
 - Rofi: `~/.config/rofi/themes/minimal-gray.rasi`
 - SwayNC: `~/.config/swaync/style.css`
-- Ghostty: `~/.config/ghostty/config`
+- Kitty: `~/.config/kitty/kitty.conf`
 - Hyprlock: `~/.config/hypr/hyprlock.conf`
 
 ### Changing Font
@@ -326,8 +308,8 @@ This configuration is free to use and modify. No warranty provided.
 
 ## 💖 Credits
 
-- Inspired by the minimalist aesthetic of The Fairly OddParents' Pixies
-- Color scheme: Pure grayscale minimal theme
+- Inspired by my sad live
+- Color scheme: Pure grayscale theme
 - Based on the Arch Linux and Hyprland communities
 
 ---
