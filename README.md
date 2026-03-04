@@ -6,7 +6,7 @@ A simple, hyprland configuration if you have a simple life like me.
 
 ## 📸 Screenshots
 
-![Screenshot](./screenshots/pic.png)
+![Screenshot](./screenshots/pic2.png)
 
 ## ✨ Features
 
